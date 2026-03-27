@@ -20,9 +20,19 @@ export function EmailCapture() {
         body: JSON.stringify({ email }),
       });
 
+      let payload: { error?: string; details?: string } = {};
+      try {
+        payload = (await response.json()) as typeof payload;
+      } catch {
+        /* non-JSON body */
+      }
+
       if (!response.ok) {
-        const result = (await response.json()) as { error?: string };
-        throw new Error(result.error || "Subscription failed.");
+        setStatus("error");
+        setMessage(
+          payload.error || "Could not join the list. Please try again.",
+        );
+        return;
       }
 
       setStatus("success");
@@ -30,7 +40,7 @@ export function EmailCapture() {
       setEmail("");
     } catch {
       setStatus("error");
-      setMessage("Something went wrong. Please try again.");
+      setMessage("Network error. Check your connection and try again.");
     }
   }
 
