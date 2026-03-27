@@ -25,24 +25,37 @@ export async function POST(request: Request) {
     return Response.json({ error: "Please enter a valid email." }, { status: 400 });
   }
 
+  const klaviyoHeaders = {
+    Authorization: `Klaviyo-API-Key ${apiKey}`,
+    Accept: "application/vnd.api+json",
+    "Content-Type": "application/vnd.api+json",
+    revision: "2026-01-15",
+  } as const;
+
   const klaviyoResponse = await fetch(
     "https://a.klaviyo.com/api/profile-subscription-bulk-create-jobs/",
     {
       method: "POST",
-      headers: {
-        Authorization: `Klaviyo-API-Key ${apiKey}`,
-        "Content-Type": "application/json",
-        revision: "2024-10-15",
-      },
+      headers: klaviyoHeaders,
       body: JSON.stringify({
         data: {
           type: "profile-subscription-bulk-create-job",
           attributes: {
+            custom_source: "awake + align landing page",
             profiles: {
               data: [
                 {
                   type: "profile",
-                  attributes: { email },
+                  attributes: {
+                    email,
+                    subscriptions: {
+                      email: {
+                        marketing: {
+                          consent: "SUBSCRIBED",
+                        },
+                      },
+                    },
+                  },
                 },
               ],
             },

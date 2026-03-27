@@ -3,7 +3,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "awake + align — Faith + Fitness",
-  description: "Coming soon — power love sound mind",
+  description: "Coming May 2026 — power love sound mind",
 };
 
 export default function RootLayout({

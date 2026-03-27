@@ -14,12 +14,15 @@
   --sand: #e8e4d4;
   --muted: #a9b8c3;
   --pastel-blue-light: #e8eef3;
+  /* Logo / hero “white” — off-white cream (brand sheet) */
+  --text-brand-light: #fffce9;
   --font-headline: "Poppins", system-ui, sans-serif;
   --font-body: "Open Sans", system-ui, sans-serif;
 }
 
 @theme inline {
   --color-background: var(--background);
+  --color-brand-light: var(--text-brand-light);
   --color-foreground: var(--foreground);
   --color-app-surface: var(--app-surface);
   --color-cream: var(--cream);
@@ -50,7 +53,21 @@ body {
   position: relative;
   isolation: isolate;
   min-height: 100%;
-  background: #121212;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.88) 0%,
+      rgba(255, 255, 255, 0.6) 52%,
+      rgba(255, 255, 255, 0.38) 100%
+    ),
+    radial-gradient(
+      ellipse 140% 110% at 50% 102%,
+      rgba(255, 230, 185, 0.5) 0%,
+      rgba(255, 238, 210, 0.32) 28%,
+      rgba(254, 250, 240, 0.12) 54%,
+      transparent 76%
+    ),
+    var(--background);
 }
 
 .hero-video-layer {

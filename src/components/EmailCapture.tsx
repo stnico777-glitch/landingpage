@@ -5,7 +5,7 @@ import { FormEvent, useState } from "react";
 export function EmailCapture() {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
-  const [message, setMessage] = useState("No spam. Early access only.");
+  const [message, setMessage] = useState("Your new favorite mornings with Christ + Pilates.");
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -47,7 +47,7 @@ export function EmailCapture() {
         />
         <div className="relative">
           <p className="font-headline mb-3 flex items-center justify-center gap-1.5 text-center text-sm font-medium uppercase tracking-[0.12em] text-white/90">
-            <span>Coming soon</span>
+            <span>Coming May 2026</span>
             <span
               aria-hidden
               className="text-[#FFEFD6]/90 [filter:drop-shadow(0_0_7px_rgba(255,239,214,0.55))]"
@@ -78,12 +78,14 @@ export function EmailCapture() {
             <button
               type="submit"
               disabled={status === "loading"}
-              className="h-11 shrink-0 rounded-full border border-white/30 bg-gradient-to-r from-[#6EADE4] to-[#8ABAE8] px-5 font-headline text-sm font-semibold tracking-wide text-white shadow-[0_8px_18px_rgba(110,173,228,0.35)] transition hover:brightness-110"
+              className="h-11 shrink-0 rounded-full border border-white/30 bg-gradient-to-r from-[#6EADE4] to-[#8ABAE8] px-4 font-headline text-xs font-semibold tracking-wide text-brand-light shadow-[0_8px_18px_rgba(110,173,228,0.35)] transition hover:brightness-110 sm:px-5 sm:text-sm"
             >
-              {status === "loading" ? "Joining..." : "Join the movement"}
+              {status === "loading"
+                ? "Joining..."
+                : "Join the waitlist"}
             </button>
           </form>
-          <p className="mt-2 min-h-5 text-center text-xs text-white/85">
+          <p className="mt-3 min-h-[1.75rem] text-center text-sm font-medium leading-snug text-brand-light/90 sm:text-base">
             {message}
           </p>
         </div>
