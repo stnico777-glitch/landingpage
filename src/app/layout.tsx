@@ -2,8 +2,22 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.awakeandalign.fit"),
   title: "awake + align",
   description: "Coming May 2026 — power love sound mind",
+  openGraph: {
+    title: "awake + align",
+    description: "Coming May 2026 — power love sound mind",
+    url: "/",
+    siteName: "awake + align",
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "awake + align",
+    description: "Coming May 2026 — power love sound mind",
+  },
 };
 
 export default function RootLayout({
