@@ -45,7 +45,7 @@ export function EmailCapture() {
   }
 
   return (
-    <section className="fadeIn-delay-2 fadeIn mt-8 w-full max-w-xl px-2">
+    <section className="fadeIn-delay-2 fadeIn mt-3 w-full max-w-xl px-2">
       <div className="relative overflow-hidden rounded-3xl border border-white/30 bg-white/10 p-4 shadow-[0_14px_40px_rgba(0,0,0,0.35)] backdrop-blur-lg sm:p-6">
         <div
           aria-hidden

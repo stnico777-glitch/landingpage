@@ -1,12 +1,19 @@
+import Image from "next/image";
+
 export function HeroTitle() {
   return (
-    <div className="fadeIn mx-auto max-w-2xl px-4 text-center sm:px-6">
-      <h1 className="font-headline mb-5 text-[clamp(1.75rem,5vw,4.75rem)] font-normal lowercase leading-[1.4] tracking-[0.135em] text-brand-light [text-shadow:0_2px_24px_rgba(0,0,0,0.35)] md:text-[clamp(2.25rem,4.8vw,4.75rem)]">
-        awake+align
+    <div className="fadeIn mx-auto w-full max-w-2xl px-4 text-center sm:px-6">
+      <h1 className="mb-2">
+        <Image
+          src="/wordmark.png"
+          alt="awake + align — power love sound mind"
+          width={966}
+          height={187}
+          unoptimized
+          className="mx-auto h-auto w-full max-w-[min(90vw,18rem)] bg-transparent sm:max-w-sm md:max-w-md lg:max-w-lg"
+          priority
+        />
       </h1>
-      <p className="font-body text-[clamp(0.8125rem,2vw,1.0625rem)] font-normal lowercase leading-[1.4] tracking-[0.14em] text-brand-light [text-shadow:0_1px_12px_rgba(0,0,0,0.28)]">
-        power love sound mind
-      </p>
     </div>
   );
 }
